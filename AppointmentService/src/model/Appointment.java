@@ -33,7 +33,7 @@ public class Appointment {
 	String query = " insert into appointment(`appointmentID`,`appointmentDate`,`appointmentTime`,`appointmentDoctor`,`appointmentHospital`)"+ " values (?, ?, ?, ?, ?)";
 	PreparedStatement preparedStmt = con.prepareStatement(query);
 	// binding values
-	preparedStmt.setInt(1, 2);
+	preparedStmt.setInt(1, 0);
 	preparedStmt.setString(2, date);
 	preparedStmt.setString(3, time);
 	preparedStmt.setString(4, doctor);
@@ -100,8 +100,8 @@ public class Appointment {
 			Connection con = connect();
 			if (con == null)
 			{return "Error while connecting to the database for updating."; }
-			// create a prepared statement
-			String query = "UPDATE items SET appointmentDate=?,appointmentTime=?,appointmentDoctor=?,appointmentHospital=?WHERE appointmentID=?";
+			// create a prepared statements
+			String query = "UPDATE appointment SET appointmentDate=?,appointmentTime=?,appointmentDoctor=?,appointmentHospital=?WHERE appointmentID=?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
 			preparedStmt.setString(1, date);
@@ -109,7 +109,7 @@ public class Appointment {
 			preparedStmt.setString(3, doctor);
 			preparedStmt.setString(4, hospital);
 			preparedStmt.setInt(5, Integer.parseInt(ID));
-			// execute the statement
+			// execute the statements
 			preparedStmt.execute();
 			con.close();
 			output = "Updated successfully";
