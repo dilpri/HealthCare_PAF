@@ -100,7 +100,7 @@ public class Appointment {
 			Connection con = connect();
 			if (con == null)
 			{return "Error while connecting to the database for updating."; }
-			// create a prepared statement
+			// create a prepared statements
 			String query = "UPDATE appointment SET appointmentDate=?,appointmentTime=?,appointmentDoctor=?,appointmentHospital=?WHERE appointmentID=?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
@@ -109,7 +109,7 @@ public class Appointment {
 			preparedStmt.setString(3, doctor);
 			preparedStmt.setString(4, hospital);
 			preparedStmt.setInt(5, Integer.parseInt(ID));
-			// execute the statement
+			// execute the statements
 			preparedStmt.execute();
 			con.close();
 			output = "Updated successfully";
