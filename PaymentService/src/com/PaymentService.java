@@ -26,9 +26,10 @@ public class PaymentService {
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String insertPayment(@FormParam("cardType") String cardType,
-	 @FormParam("cardNo") String cardNo,
-	 @FormParam("amount") String amount)
+	public String insertPayment(
+			 @FormParam("cardType") String cardType,
+	         @FormParam("cardNo") String cardNo,
+	         @FormParam("amount") String amount)
 	
 	{
 	 String output = paymentObj.insertPayment( cardType, cardNo, amount);
