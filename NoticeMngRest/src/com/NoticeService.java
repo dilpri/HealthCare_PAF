@@ -36,9 +36,13 @@ public class NoticeService {
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
-	public String insertNotice(@FormParam("noticeType") String noticeType, @FormParam("noticeDesc") String noticeDesc) {
-
-		String output = nObj.insertNotice(noticeType, noticeDesc);
+	public String insertNotice(
+			
+			@FormParam("noticeType") String noticeType, 
+			@FormParam("noticeDesc") String noticeDesc
+			
+			) {
+		String output = nObj.insertNotice( noticeType,noticeDesc);
 		return output;
 	}
 

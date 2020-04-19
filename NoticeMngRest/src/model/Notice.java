@@ -19,7 +19,7 @@ public class Notice {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
-			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/healthcare", "admin", "");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/healthcare", "root", "");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -30,18 +30,16 @@ public class Notice {
 	
 	
 	
-	// Insert
-		public String insertNotice(String noticeType, String noticeDesc) {
+	//Insert
+		public String insertNotice( String noticeType, String noticeDesc) {
 			String output = "";
-			
-			
 			try {
 				Connection con = connect();
 				if (con == null) {
 					return "Error while connecting to the database for inserting.";
 				}
 				// create a prepared statement
-				String query = " insert into notices (`noticeID`,`noticeType`,'noticeDesc')"
+				String query = " insert into notices (`noticeID`,`noticeType`,`noticeDesc`)"
 						+ " values (?, ?, ?)";
 				PreparedStatement preparedStmt = con.prepareStatement(query);
 				// binding values
@@ -49,7 +47,6 @@ public class Notice {
 				preparedStmt.setString(2, noticeType);
 				preparedStmt.setString(3, noticeDesc);
 				
-
 				// execute the statement
 				preparedStmt.execute();
 				con.close();
@@ -60,7 +57,8 @@ public class Notice {
 			}
 			return output;
 		}
-		
+
+
 		//read
 		
 		
@@ -138,9 +136,11 @@ public class Notice {
 		}
 
 
-		//delete
 		
 		
+		
+		// delete
+
 		public String deleteNotice(String noticeID) {
 			String output = "";
 			try {
@@ -163,11 +163,5 @@ public class Notice {
 			}
 			return output;
 		}
-		
-		
 
-
-}
-	
-
-
+	}
