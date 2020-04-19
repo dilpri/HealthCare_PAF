@@ -14,7 +14,7 @@ public class Appointment {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			// Provide the correct details: DBServer/DBName, username, password
-			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/healthcare", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/health_care", "root", "");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -33,7 +33,7 @@ public class Appointment {
 	String query = " insert into appointment(`appointmentID`,`appointmentDate`,`appointmentTime`,`appointmentDoctor`,`appointmentHospital`)"+ " values (?, ?, ?, ?, ?)";
 	PreparedStatement preparedStmt = con.prepareStatement(query);
 	// binding values
-	preparedStmt.setInt(1, 2);
+	preparedStmt.setInt(1, 0);
 	preparedStmt.setString(2, date);
 	preparedStmt.setString(3, time);
 	preparedStmt.setString(4, doctor);
