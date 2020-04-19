@@ -101,7 +101,7 @@ public class Appointment {
 			if (con == null)
 			{return "Error while connecting to the database for updating."; }
 			// create a prepared statements
-			String query = "UPDATE appointment SET appointmentDate=?,appointmentTime=?,appointmentDoctor=?,appointmentHospital=?WHERE appointmentID=?";
+			String query = "UPDATE item SET appointmentDate=?,appointmentTime=?,appointmentDoctor=?,appointmentHospital=?WHERE appointmentID=?";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
 			preparedStmt.setString(1, date);
